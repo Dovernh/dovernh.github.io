@@ -42,27 +42,29 @@
             checkOrigin: false
         });
 
-        // iframe
-        var options = {
-            iframeSel: '#myIframe',
-            pageHdrHgt: document.querySelector('.container .header').clientHeight,
-        };
+        (function (options) {
+            'use strict';
 
-        var iframe = document.querySelector(options.iframeSel);
+            var iframe = document.querySelector(options.iframeSel);
 
-        function iframeReady () {
-            window.addEventListener('scroll', function() {
-                var scroll = window.pageYOffset || 
-                             document.documentElement.scrollTop || 
-                             document.body.scrollTop ||
-                             0;
+            function iframeReady () {
+                window.addEventListener('scroll', function() {
+                    var scroll = window.pageYOffset || 
+                                document.documentElement.scrollTop || 
+                                document.body.scrollTop ||
+                                0;
 
-                iframe.iFrameResizer.sendMessage({ 'scroll': scroll, 'pageHdrHgt': options.pageHdrHgt });
-                //scrollIframe(scroll);
-            });     
-        }
+                    iframe.iFrameResizer.sendMessage({ 'scroll': scroll, 'pageHdrHgt': options.pageHdrHgt });
+                });     
+            }
 
-        setTimeout(iframeReady, 500);
+            setTimeout(iframeReady, 500);
+
+        }(  {
+                iframeSel: '#myIframe',
+                pageHdrHgt: document.querySelector('.container .header').clientHeight
+            }
+        ));
     </script>
 </body>
 </html>
