@@ -10,6 +10,7 @@
     <style>
         .header,
         .footer {
+            /* fluff */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -36,45 +37,28 @@
 
     <script src="./js/lib/iframeResizer.js"></script>
     <script>
-        iFrameResize();
+        iFrameResize({
+            log: false,
+            checkOrigin: false
+        });
 
+        // iframe
         var options = {
             iframeSel: '#myIframe',
-            iframeHdr: '.iframe .header',
-            iframeLeftNav: '.iframe .left-nav',
-            pageHdrHgt: document.querySelector('.container .header').clientHeight
+            pageHdrHgt: document.querySelector('.container .header').clientHeight,
         };
 
-        var iframe = document.querySelector(options.iframeSel),
-            innerDoc = iframe.contentDocument || iframe.contentWindow.document,
-            header = innerDoc.querySelector(options.iframeHdr),
-            leftNav = innerDoc.querySelector(options.iframeLeftNav),
-            hdrHgt = header.clientHeight;
-
-        // console.log('Header Height', hdrHgt);
-
-        function scrollIframe (scroll) {
-            if (scroll > options.pageHdrHgt) {
-                header.style.top = scroll - options.pageHdrHgt + 'px';
-            }
-
-            if (scroll < 0) {
-                header.style.top = 0;
-            }
-
-            leftNav.style.top = scroll + 'px';
-        }
+        var iframe = document.querySelector(options.iframeSel);
 
         function iframeReady () {
             window.addEventListener('scroll', function() {
                 var scroll = window.pageYOffset || 
-                                document.documentElement.scrollTop || 
-                                document.body.scrollTop ||
-                                0;
+                             document.documentElement.scrollTop || 
+                             document.body.scrollTop ||
+                             0;
 
-                console.log('scroll', scroll);
-
-                scrollIframe(scroll);
+                iframe.iFrameResizer.sendMessage({ 'scroll': scroll, 'pageHdrHgt': options.pageHdrHgt });
+                //scrollIframe(scroll);
             });     
         }
 

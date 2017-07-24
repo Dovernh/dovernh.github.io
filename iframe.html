@@ -10,10 +10,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css">
     <style>
         .header {
+            /* needed */
             position: fixed;
             width: 100%;
-            padding: 20px 0;
             z-index: 99;
+
+            /* fluff */
+            padding: 20px 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -489,6 +492,40 @@
     </div>
 </body>
 
+<script>
+    var options = {
+        iframeHdr: '.iframe .header',
+        iframeLeftNav: '.iframe .left-nav',
+    };
+
+    var header = document.querySelector(options.iframeHdr),
+        leftNav = document.querySelector(options.iframeLeftNav),
+        hdrHgt = header.clientHeight;
+
+    function scrollIframe (scroll, pageHdrHgt) {
+        console.log('scroll', scroll);
+
+        if (scroll > pageHdrHgt) {
+            header.style.top = scroll - pageHdrHgt + 'px';
+        }
+
+        if (scroll < 0) {
+            header.style.top = 0;
+        }
+
+        leftNav.style.top = scroll + 'px';
+    }
+
+    function onMsg(msg) {
+        if (msg.hasOwnProperty('scroll') && msg.hasOwnProperty('pageHdrHgt')) {
+            scrollIframe(msg.scroll, msg.pageHdrHgt);
+        }
+    }
+
+    window.iFrameResizer = {
+        messageCallback: onMsg
+    }
+</script>
 <script src="./js/lib/iframeResizer.contentWindow.js"></script>
 
 </html>
