@@ -14,9 +14,6 @@
             position: fixed;
             width: 100%;
             z-index: 99;
-            top: 0;
-            -webkit-transition: top .05s ease-out 0s;
-            transition: top .05s ease-out 0s;
 
             /* fluff */
             padding: 20px 0;
@@ -25,8 +22,13 @@
             align-items: center;
             background-color: aqua;
         }
+        .left-nav ul {
+            position: fixed;
+            width: 100%;
+        }
         body .row {
             margin-left: 0;
+            margin-right: 0;
         }
         .content,
         .left-nav {
@@ -494,46 +496,5 @@
         </div>
     </div>
 </body>
-
-<script>
-
-    (function (options) {
-        'use strict';
-
-        var header = document.querySelector(options.iframeHdr),
-            leftNav = document.querySelector(options.iframeLeftNav),
-            hdrHgt = header.clientHeight;
-
-            function scrollIframe (scroll, pageHdrHgt) {
-                console.log('scroll', scroll);
-
-                if (scroll > pageHdrHgt) {
-                    header.style.top = scroll - pageHdrHgt + 'px';
-                }
-
-                if (scroll < 0) {
-                    header.style.top = 0;
-                }
-
-                leftNav.style.top = scroll + 'px';
-            }
-
-            function onMsg(msg) {
-                if (msg.hasOwnProperty('scroll') && msg.hasOwnProperty('pageHdrHgt')) {
-                    scrollIframe(msg.scroll, msg.pageHdrHgt);
-                }
-            }
-
-            window.iFrameResizer = {
-                messageCallback: onMsg
-            }
-    }(
-        {
-            iframeHdr: '.iframe .header',
-            iframeLeftNav: '.iframe .left-nav'
-        }
-    ));
-</script>
-<script src="./js/lib/iframeResizer.contentWindow.js"></script>
 
 </html>
