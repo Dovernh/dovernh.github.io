@@ -17,7 +17,6 @@
             background-color: pink;
             padding: 15px 0;
         }
-
         /* needed */
         iframe{ 
             width: 100%; 
@@ -28,43 +27,11 @@
     <div class="header">
         <p>Website Header</p>
     </div>
-    <iframe id="myIframe" src="https://dovernh.github.io/iframe.html" frameborder="0" scrolling="no"></iframe>
-    <!-- <iframe id="myIframe" src="./iframe.html" frameborder="0" scrolling="no"></iframe> -->
+    
+    <iframe id="myIframe" src="./iframe.html" frameborder="0" scrolling="yes" height="600"></iframe>
 
     <div class="footer">
         <p>Website footer</p>
     </div>
-
-    <script src="./js/lib/iframeResizer.js"></script>
-    <script>
-        iFrameResize({
-            log: false,
-            checkOrigin: false
-        });
-
-        (function (options) {
-            'use strict';
-
-            var iframe = document.querySelector(options.iframeSel);
-
-            function iframeReady () {
-                window.addEventListener('scroll', function() {
-                    var scroll = window.pageYOffset || 
-                                document.documentElement.scrollTop || 
-                                document.body.scrollTop ||
-                                0;
-
-                    iframe.iFrameResizer.sendMessage({ 'scroll': scroll, 'pageHdrHgt': options.pageHdrHgt });
-                });     
-            }
-
-            setTimeout(iframeReady, 500);
-
-        }(  {
-                iframeSel: '#myIframe',
-                pageHdrHgt: document.querySelector('.container .header').clientHeight
-            }
-        ));
-    </script>
 </body>
 </html>
