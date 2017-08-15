@@ -11,15 +11,15 @@
     <style>
         .header {
             /* needed */
-            position: absolute;
+            position: fixed;
             z-index: 99;
             width: 100%;
+            text-align: center;
             padding: 20px;
             background-color: aqua;
         }
-        .left-nav ul {
-            position: absolute;
-            width: 100%;
+        .left-nav {
+            position: fixed;
         }
         .content,
         .left-nav {
@@ -36,7 +36,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3 left-nav">
+        <div class="col-lg-3 col-md-3 col-sm-3">
             <ul>
                 <li>Menu 1</li>
                 <li>Menu B</li>
@@ -51,8 +51,8 @@
             </ul>
         </div>
 
-        <div class="col-md-9 content">
-            <ul>
+        <div class="col-lg-9 col-md-9 col-sm-9">
+            <ul class="content">
                 <li>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, ea harum sed nulla illo quasi. Corrupti,
                         quis dolore qui impedit explicabo temporibus possimus ea nam, ab quo distinctio sint repudiandae
