@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css">
     <style>
         .header,
         .footer {
@@ -14,27 +15,39 @@
             background-color: pink;
             padding: 15px 0;
         }
+
         .header {
-            position: absolute;
-            width: 66.3em;
+            position: fixed;
+            transform: none !important;
+            top: 0;
+        }
+
+        .header p {
+            width:81.5em;
         }
         /* needed */
-        iframe{ 
+
+        iframe {
             width: 100%;
+            overflow-x: hidden;
             margin-top: 70px;
         }
     </style>
 </head>
+
 <body class="container">
+
     <div class="header">
         <p>Website Header</p>
     </div>
+
     <div class="scroll-wrapper">
         <iframe id="myIframe" src="./iframe.html" frameborder="0" scrolling="yes" height="600"></iframe>
     </div>
-    
+
     <div class="footer">
         <p>Website footer</p>
     </div>
 </body>
+
 </html>
