@@ -11,25 +11,15 @@
     <style>
         .header {
             /* needed */
-            position: fixed;
-            transform: translate3d(0,0,0);
-            width: 100%;
+            position: absolute;
             z-index: 99;
-
-            /* fluff */
-            padding: 20px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            width: 100%;
+            padding: 20px;
             background-color: aqua;
         }
         .left-nav ul {
-            position: fixed;
+            position: absolute;
             width: 100%;
-        }
-        body .row {
-            margin-left: 0;
-            margin-right: 0;
         }
         .content,
         .left-nav {
