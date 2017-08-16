@@ -7,12 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    <script>
-        if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
-            document.querySelector('body').classList.add('ios');
-        }
-    </script>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css">
     <style>
         .header,
@@ -72,6 +66,12 @@
     <div class="footer">
         <p>Website footer</p>
     </div>
+
+    <script>
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+            document.querySelector('body').classList.add('ios');
+        }
+    </script>
 </body>
 
 </html>
