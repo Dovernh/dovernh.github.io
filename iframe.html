@@ -12,6 +12,18 @@
         .header {
             /* needed */
             position: fixed;
+
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+            -webkit-transform: none!important;
+            -ms-transform: none!important;
+            transform: none!important;
+            
+            top: 0;
+
             z-index: 99;
             width: 100%;
             text-align: center;
@@ -37,9 +49,9 @@
 
     <div class="row" style="margin-right: 0; padding-right: 0">
         <div class="col-lg-3 col-md-3 col-sm-3">
-            <ul>
+            <ul class="left-nav">
                 <li>Menu 1</li>
-                <li>Menu B</li>
+                <li>Menu 2</li>
                 <li>Menu 3</li>
                 <li>Menu 4</li>
                 <li>Menu 5</li>
