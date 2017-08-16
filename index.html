@@ -10,17 +10,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css">
     <style>
         .header,
-        .footer {
+        .footer,
+        .iframe-header {
             text-align: center;
             background-color: pink;
             padding: 15px 0;
         }
 
-        .ios .header {
-            background-color: blue;
-        }
-
-        .header {
+        .header,
+        .iframe-header {
             position: fixed;
             z-index: 999;
 
@@ -32,20 +30,28 @@
             -webkit-transform: none!important;
             -ms-transform: none!important;
             transform: none!important;
-            
+
             top: 0;
         }
 
-        .header p {
-            width:81.5em;
+        .iframe-header {
+            background-color: aqua;
+            top: 70px;
+        }
+
+        .header p,
+        .iframe-header p {
+            width: 81.5em;
         }
         /* needed */
-        .ios .scroll-wrapper {
-            position: fixed;
-            top: 70px;
-            overflow-y: scroll;
-            -webkit-overflow-scrolling: touch;
-            height: 600px;
+
+        .scroll-wrapper {
+            margin-top: 70px;
+            height: 680px;
+        }
+
+        .left-nav {
+            margin-top: 100px;
         }
 
         iframe {
@@ -57,13 +63,35 @@
 </head>
 
 <body class="container">
-
     <div class="header">
         <p>Website Header</p>
     </div>
 
+    <div class="iframe-header">
+        <p>IFrame Header</p>
+    </div>
+
     <div class="scroll-wrapper">
-        <iframe id="myIframe" src="./iframe.html" frameborder="0" scrolling="yes" height="600"></iframe>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <ul class="left-nav">
+                    <li>Menu A</li>
+                    <li>Menu 2</li>
+                    <li>Menu 3</li>
+                    <li>Menu 4</li>
+                    <li>Menu 5</li>
+                    <li>Menu 6</li>
+                    <li>Menu 7</li>
+                    <li>Menu 8</li>
+                    <li>Menu 9</li>
+                    <li>Menu A</li>
+                </ul>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-9">
+                <iframe id="myIframe" src="./iframe.html" frameborder="0" scrolling="yes" height="600"></iframe>
+            </div>
+        </div>
+
     </div>
 
     <div class="footer">
