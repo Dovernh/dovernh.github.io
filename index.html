@@ -7,6 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
+    <script>
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+            document.querySelector('body').classList.add('ios');
+        }
+    </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css">
     <style>
         .header,
@@ -35,6 +41,11 @@
             width:81.5em;
         }
         /* needed */
+        .ios .scroll-wrapper {
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            height: 600px;
+        }
 
         iframe {
             width: 100%;
